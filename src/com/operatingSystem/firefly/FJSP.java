@@ -1,9 +1,6 @@
 package com.operatingSystem.firefly;
 
-import jdk.nashorn.internal.scripts.JO;
-
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /**
  * Created by surag on 11/14/2016.
@@ -18,8 +15,8 @@ import java.util.HashSet;
 public class FJSP {
 
     private enum Algo {FIREFLY, RANDOM, FCFS, SRTF}
-    private HashSet<Job> jobs;
-    private HashSet<Machine> machines;
+    private ArrayList<Job> jobs;
+    private ArrayList<Machine> machines;
 
     /*
      * Makespan (Cm) of the jobs, i.e. the completion time of all
@@ -33,28 +30,59 @@ public class FJSP {
     private int maximalMachineworkLoad;
     private int totalMachineWorkload;
 
-    public FJSP(HashSet<Job> jobs, HashSet<Machine> machines) {
+    public FJSP(ArrayList<Job> jobs, ArrayList<Machine> machines) {
         this.jobs = jobs;
         this.machines = machines;
     }
 
-    public void scheduleFunctions(Algo algo) {
-        switch(algo) {
-            case FIREFLY: // TODO send to FIREFLY function.
-                break;
-            case FCFS:  // TODO send to FCFS function.
-                break;
-            case RANDOM:    // TODO send to RANDOM function.
-                break;
-            case SRTF:  // TODO send to SRTF function.
-                break;
-        }
+    public ArrayList<Job> getJobs() {
+        return jobs;
     }
 
-    /*
-     * Inputs will be
-     * n total number of jobs
-     * m total number of machines
-     * ni total number of operations of job i
-     */
+    public void setJobs(ArrayList<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    public ArrayList<Machine> getMachines() {
+        return machines;
+    }
+
+    public void setMachines(ArrayList<Machine> machines) {
+        this.machines = machines;
+    }
+
+    public int getMakespan() {
+        return makespan;
+    }
+
+    public void setMakespan(int makespan) {
+        this.makespan = makespan;
+    }
+
+    public int getMaximalMachineworkLoad() {
+        return maximalMachineworkLoad;
+    }
+
+    public void setMaximalMachineworkLoad(int maximalMachineworkLoad) {
+        this.maximalMachineworkLoad = maximalMachineworkLoad;
+    }
+
+    public int getTotalMachineWorkload() {
+        return totalMachineWorkload;
+    }
+
+    public void setTotalMachineWorkload(int totalMachineWorkload) {
+        this.totalMachineWorkload = totalMachineWorkload;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "FJSP{" +
+//                "jobs=" + jobs.toString() +
+//                ", machines=" + machines.toString() +
+//                ", makespan=" + makespan +
+//                ", maximalMachineworkLoad=" + maximalMachineworkLoad +
+//                ", totalMachineWorkload=" + totalMachineWorkload +
+//                '}';
+//    }
 }

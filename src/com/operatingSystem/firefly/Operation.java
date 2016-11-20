@@ -28,6 +28,11 @@ public class Operation {
         this.operationId = count.incrementAndGet();
     }
 
+    public Operation(HashMap<Machine, Integer> machineProcessTime) {
+        this.machineProcessTime = machineProcessTime;
+        this.operationId = count.incrementAndGet();
+    }
+
     public HashMap<Machine, Integer> getMachineProcessTime() {
         return machineProcessTime;
     }
@@ -79,13 +84,13 @@ public class Operation {
     }
 
     //might have to change this in future
-    @Override
-    public String toString() {
-        return "Operation{" +
-                "operationId=" + operationId +
-                ", job=" + job.getJobId() +
-                ", machineProcessTime=" + machineProcessTime.toString() +
-                ", machineThatExecutedThe=" + machineThatExecutedThe +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Operation{" +
+//                "operationId=" + operationId +
+//                ", job=" + job.getJobId() == null ? "null" : job.getJobId() +
+//                ", machineProcessTime=" + machineProcessTime == null ? "null"  : machineProcessTime.toString() +
+//                ", machineThatExecutedThe=" + (machineThatExecutedThe == null ? "null" : machineThatExecutedThe) +
+//                '}';
+//    }
 }

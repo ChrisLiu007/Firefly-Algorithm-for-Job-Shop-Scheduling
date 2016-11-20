@@ -1,6 +1,6 @@
 package com.operatingSystem.firefly;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -9,19 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Job {
 
     private static final AtomicInteger count = new AtomicInteger(0);
-    private HashSet<Operation> operations;
+    private ArrayList<Operation> operations;
     private int jobId;
 
-    public Job(HashSet<Operation> operations) {
+    public Job(ArrayList<Operation> operations) {
         this.operations = operations;
         this.jobId = count.incrementAndGet();
     }
 
-    public HashSet<Operation> getOperations() {
+    public ArrayList<Operation> getOperations() {
         return operations;
     }
 
-    public void setOperations(HashSet<Operation> operations) {
+    public void setOperations(ArrayList<Operation> operations) {
         this.operations = operations;
     }
 
@@ -50,11 +50,11 @@ public class Job {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Job{" +
-                "jobId=" + jobId +
-                ", operations=" + operations.toString() +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Job{" +
+//                "jobId=" + jobId == null ? "null" : jobId +
+//                ", operations=" + operations == null ? "null": operations.toString() +
+//                '}';
+//    }
 }
