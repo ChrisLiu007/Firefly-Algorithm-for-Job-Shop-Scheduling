@@ -1,5 +1,8 @@
 package com.operatingSystem.firefly;
 
+import jdk.nashorn.internal.scripts.JO;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -14,10 +17,11 @@ import java.util.HashSet;
  */
 public class FJSP {
 
+    private enum Algo {FIREFLY, RANDOM, FCFS, SRTF}
     private HashSet<Job> jobs;
     private HashSet<Machine> machines;
 
-    /**
+    /*
      * Makespan (Cm) of the jobs, i.e. the completion time of all
      * jobs
      * 2. Maximal machine workload (Wm), i.e. the maximum
@@ -29,8 +33,25 @@ public class FJSP {
     private int maximalMachineworkLoad;
     private int totalMachineWorkload;
 
+    public FJSP(HashSet<Job> jobs, HashSet<Machine> machines) {
+        this.jobs = jobs;
+        this.machines = machines;
+    }
 
-    /**
+    public void scheduleFunctions(Algo algo) {
+        switch(algo) {
+            case FIREFLY: // TODO send to FIREFLY function.
+                break;
+            case FCFS:  // TODO send to FCFS function.
+                break;
+            case RANDOM:    // TODO send to RANDOM function.
+                break;
+            case SRTF:  // TODO send to SRTF function.
+                break;
+        }
+    }
+
+    /*
      * Inputs will be
      * n total number of jobs
      * m total number of machines
