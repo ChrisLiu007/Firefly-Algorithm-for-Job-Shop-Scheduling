@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class FJSP {
 
     private enum Algo {FIREFLY, RANDOM, FCFS, SRTF}
+
     private ArrayList<Job> jobs;
     private ArrayList<Machine> machines;
 
@@ -73,6 +74,14 @@ public class FJSP {
 
     public void setTotalMachineWorkload(int totalMachineWorkload) {
         this.totalMachineWorkload = totalMachineWorkload;
+    }
+
+    public int getNumberOfoperations() {
+        int numOfOperations = 0;
+        for (Job j : jobs) {
+            numOfOperations += j.getOperations().size();
+        }
+        return numOfOperations;
     }
 
 //    @Override

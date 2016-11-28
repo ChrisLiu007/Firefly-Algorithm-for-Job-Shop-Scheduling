@@ -1,7 +1,5 @@
 package com.operatingSystem.firefly;
 
-import jdk.nashorn.internal.scripts.JO;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -63,7 +61,7 @@ public class AlgorithmInitializer {
                 System.out.println(m);
             }
             FJSP fjsp = new FJSP(jobs,machines);
-            FireFly.schedule(fjsp);
+            FireflyAlgo.schedule(fjsp);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
