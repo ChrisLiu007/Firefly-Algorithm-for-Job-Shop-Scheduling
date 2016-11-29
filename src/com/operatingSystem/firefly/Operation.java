@@ -20,12 +20,15 @@ public class Operation {
     private int operationId;
     private Job job;
     private HashMap<Machine, Integer> machineProcessTime;
-    private Machine machineThatExecutedThe;
+    private Machine machineThatExecutedTheOperation;
+    private boolean processed;
+    private int startTime;
 
     public Operation(HashMap<Machine, Integer> machineProcessTime, Job job) {
         this.machineProcessTime = machineProcessTime;
         this.job = job;
         this.operationId = count.incrementAndGet();
+        this.processed = false;
     }
 
     public Operation(HashMap<Machine, Integer> machineProcessTime) {
@@ -49,12 +52,12 @@ public class Operation {
         this.job = job;
     }
 
-    public Machine getMachineThatExecutedThe() {
-        return machineThatExecutedThe;
+    public Machine getMachineThatExecutedTheOperation() {
+        return machineThatExecutedTheOperation;
     }
 
-    public void setMachineThatExecutedThe(Machine machineThatExecutedThe) {
-        this.machineThatExecutedThe = machineThatExecutedThe;
+    public void setMachineThatExecutedTheOperation(Machine machineThatExecutedTheOperation) {
+        this.machineThatExecutedTheOperation = machineThatExecutedTheOperation;
     }
 
     public int getOperationId() {
@@ -75,13 +78,30 @@ public class Operation {
 
     }
 
-    @Override
-    public int hashCode() {
-        int result = getMachineProcessTime() != null ? getMachineProcessTime().hashCode() : 0;
-        result = 31 * result + getJob().hashCode();
-        result = 31 * result + getOperationId();
-        return result;
+//    @Override
+//    public int hashCode() {
+//        int result = getMachineProcessTime() != null ? getMachineProcessTime().hashCode() : 0;
+//        result = 31 * result + getJob().hashCode();
+//        result = 31 * result + getOperationId();
+//        return result;
+//    }
+
+    public boolean isProcessed() {
+        return processed;
     }
+
+    public void setProcessed(boolean processed) {
+        this.processed = processed;
+    }
+
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
+    }
+
+    public int getStartTime() {
+        return startTime;
+    }
+
 
     //might have to change this in future
 //    @Override
@@ -90,7 +110,7 @@ public class Operation {
 //                "operationId=" + operationId +
 //                ", job=" + job.getJobId() == null ? "null" : job.getJobId() +
 //                ", machineProcessTime=" + machineProcessTime == null ? "null"  : machineProcessTime.toString() +
-//                ", machineThatExecutedThe=" + (machineThatExecutedThe == null ? "null" : machineThatExecutedThe) +
+//                ", machineThatExecutedTheOperation=" + (machineThatExecutedTheOperation == null ? "null" : machineThatExecutedTheOperation) +
 //                '}';
 //    }
 }

@@ -12,9 +12,11 @@ public class Job {
     private ArrayList<Operation> operations;
     private int jobId;
 
+
     public Job(ArrayList<Operation> operations) {
         this.operations = operations;
         this.jobId = count.incrementAndGet();
+
     }
 
     public ArrayList<Operation> getOperations() {
@@ -48,6 +50,15 @@ public class Job {
         int result = getOperations().hashCode();
         result = 31 * result + getJobId();
         return result;
+    }
+
+    public boolean isProcessed() {
+        for (Operation o : operations) {
+            if (!o.isProcessed()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 //    @Override

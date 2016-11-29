@@ -13,14 +13,14 @@ public class AlgorithmInitializer {
         File inputFile = new File("input.txt");
         try {
             Scanner s = new Scanner(inputFile);
-            int numMachines  = s.nextInt();
+            int numMachines = s.nextInt();
             int numJobs = s.nextInt();
-            ArrayList<Integer> numOps= new ArrayList<Integer>();
+            ArrayList<Integer> numOps = new ArrayList<Integer>();
             for (int i = 0; i < numJobs; i++) {
                 numOps.add(s.nextInt());
             }
             ArrayList<Machine> machines = new ArrayList<Machine>();
-            for(int i = 0;i < numMachines; i++){
+            for (int i = 0; i < numMachines; i++) {
                 Machine m = new Machine();
                 machines.add(m);
             }
@@ -28,15 +28,17 @@ public class AlgorithmInitializer {
             ArrayList<Job> jobs = new ArrayList<>();
             for (int i = 0; i < numJobs; i++) {
                 ArrayList<Operation> operations = new ArrayList<Operation>();
-                for(int j = 0; j < numOps.get(i); j++ ){
-                    HashMap<Machine,Integer> machineProcessTime = new HashMap<Machine,Integer>();
-                    for(int k = 0 ; k < numMachines; k++){
+                for (int j = 0; j < numOps.get(i); j++) {
+                    HashMap<Machine, Integer> machineProcessTime = new HashMap<Machine, Integer>();
+                    for (int k = 0; k < numMachines; k++) {
                         int mtime = s.nextInt();
 //                        System.out.println(mtime);
-                        machineProcessTime.put(machines.get(k),mtime);
+                        if(mtime != 0) {
+                            machineProcessTime.put(machines.get(k), mtime);
+                        }
                     }
 //                    System.out.println(machineProcessTime);
-                    Operation o= new Operation(machineProcessTime);
+                    Operation o = new Operation(machineProcessTime);
                     operations.add(o);
                 }
 //                System.out.println(operations.size());
@@ -44,30 +46,29 @@ public class AlgorithmInitializer {
 //                System.out.println(j.getJobId());
                 jobs.add(j);
             }
-            for(Job j : jobs){
+            for (Job j : jobs) {
                 System.out.println(j.getJobId());
                 System.out.println(j.getOperations().size());
-                for (Operation o: j.getOperations()
-                     ) {
-                    System.out.println(o.getOperationId() );
-                    for (Machine m: o.getMachineProcessTime().keySet()
-                         ) {
+                for (Operation o : j.getOperations()
+                        ) {
+                    System.out.println(o.getOperationId());
+                    for (Machine m : o.getMachineProcessTime().keySet()
+                            ) {
                         System.out.print(o.getMachineProcessTime().get(m));
                     }
                     System.out.println();
                 }
             }
-            for (Machine m: machines) {
+            for (Machine m : machines) {
                 System.out.println(m);
             }
-            FJSP fjsp = new FJSP(jobs,machines);
-            FireflyAlgo.schedule(fjsp);
-
+            FJSP fjsp = new FJSP(jobs, machines);
+//            FireflyAlgo.schedule(fjsp);
+            SRJFAlgo.schedule(fjsp);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }
