@@ -47,9 +47,10 @@ public class FireflyAlgo {
     }
 
 
-    public static GanttChart schedule(FJSP fjsp1) {
-        fjsp = fjsp1;
+    public static GanttChart schedule(FJSP fjsp) {
         Firefly intialSequence = chooseIntialSequence(fjsp);
+        ArrayList<Machine> machines = fjsp.getMachines();
+        ArrayList<Job> jobs = fjsp.getJobs();
         ArrayList<Firefly> initialPopulation = getInitialPopulation(intialSequence);
         population = initialPopulation;
         for (int i = 1; i < NUMBER_OF_GENERATIONS; i++) {
@@ -59,7 +60,7 @@ public class FireflyAlgo {
 
         }
 
-
+        GanttChart g = GanttChart.createGanttChart(jobs,machines);
         return null;
     }
 

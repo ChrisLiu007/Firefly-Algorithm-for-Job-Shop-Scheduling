@@ -6,6 +6,9 @@ import java.util.*;
  * Created by aijaz on 11/28/16.
  */
 public class SRJFAlgo {
+
+    private static FJSP fjsp;
+
     public static GanttChart schedule(FJSP fjsp) {
         ArrayList<Job> jobs = fjsp.getJobs();
         ArrayList<Machine> machines = fjsp.getMachines();
