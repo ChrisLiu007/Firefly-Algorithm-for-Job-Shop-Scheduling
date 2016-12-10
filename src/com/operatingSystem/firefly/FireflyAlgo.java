@@ -32,6 +32,9 @@ public class FireflyAlgo {
 
 
     public static class Firefly {
+
+        public static ArrayList<Job> jobs = null;
+        public static ArrayList<Machine> machines = null;
         public int[] machineAssignmentVector;
         public int[] operationSchedulingVector;
         private double objectiveFuntionScore;
@@ -173,7 +176,10 @@ public class FireflyAlgo {
     }
 
     private static Firefly chooseIntialSequence(FJSP fjsp) {
-        SRJFAlgo.schedule();
+        SRJFAlgo.schedule(fjsp);
+        ArrayList<Job> jobs = SRJFAlgo.jobs;
+        ArrayList<Machine> machines = SRJFAlgo.machines;
+
     }
     // will be the the implementation of algorithm
 }
