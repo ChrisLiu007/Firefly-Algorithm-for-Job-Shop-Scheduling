@@ -8,10 +8,12 @@ import java.util.*;
 public class SRJFAlgo {
 
     private static FJSP fjsp;
+    public static ArrayList<Job> jobs = null;
+    public static ArrayList<Machine> machines = null;
 
     public static GanttChart schedule(FJSP fjsp) {
-        ArrayList<Job> jobs = fjsp.getJobs();
-        ArrayList<Machine> machines = fjsp.getMachines();
+        jobs = fjsp.getJobs();
+        machines = fjsp.getMachines();
 
         jobs = retainShortestOperationsInJob(jobs);
         // after the above step there should be only one machine - process time entry for each operations

@@ -173,7 +173,7 @@ public class FireflyAlgo {
     }
 
     private static Firefly chooseIntialSequence(FJSP fjsp) {
-        return null;
+        SRJFAlgo.schedule();
     }
     // will be the the implementation of algorithm
 }
